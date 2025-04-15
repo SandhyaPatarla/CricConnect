@@ -2,13 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { DM_Sans } from "next/font/google"
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-dm-sans",
-})
 
 // Types
 type Amenity = "water" | "parking" | "lights" | "changing_rooms" | "equipment"
@@ -288,13 +281,13 @@ export default function CricketMatchFinder() {
   }, []);
 
   return (
-    <div className={`min-h-screen ${dmSans.variable} bg-gray-50`}>
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <motion.header 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`${dmSans.className} bg-gradient-to-r from-emerald-800 to-teal-700 shadow-lg`}
+        className="bg-gradient-to-r from-emerald-800 to-teal-700 shadow-lg"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
           <div className="flex flex-col md:flex-row justify-between items-center">
@@ -315,7 +308,7 @@ export default function CricketMatchFinder() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h1 className="text-2xl font-bold text-white">CricConnect</h1>
+              <h1 className="text-2xl font-bold text-white">CricketConnect</h1>
             </motion.div>
             <motion.nav 
               initial={{ opacity: 0, x: 20 }}
@@ -361,8 +354,8 @@ export default function CricketMatchFinder() {
               transition={{ delay: 0.6, duration: 0.5 }}
               className="mt-3 mb-8 text-center"
             >
-              <h2 className="text-3xl font-bold text-white mb-0">Find Your Perfect Cricket Match</h2>
-              <p className="text-md text-emerald-100 max-w-2xl mx-auto">
+              <h2 className="text-4xl font-bold text-white mb-0">Find Your Perfect Cricket Match</h2>
+              <p className="text-xl text-emerald-100 max-w-2xl mx-auto">
                 Join local games, meet new players, and enjoy the sport you love
               </p>
             </motion.div>
@@ -370,7 +363,7 @@ export default function CricketMatchFinder() {
         </div>
       </motion.header>
 
-      <main className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 mt-2 ${dmSans.className}`}>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 mt-2">
         <AnimatePresence mode="wait">
           {viewMode === "matches" && (
             <motion.div
@@ -383,18 +376,18 @@ export default function CricketMatchFinder() {
               {/* Filters */}
               <motion.div 
                 variants={fadeIn}
-                className="bg-white sm:p-5 p-4 rounded-xl shadow-lg mb-3 border border-gray-200 overflow-hidden"
+                className="bg-white  sm:p-8 rounded-xl shadow-lg mb-3 border border-gray-200 overflow-hidden"
               >
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="flex items-center justify-between mb-3"
+                  className="flex items-center justify-between mb-4"
                 >
-                  <h2 className="text-lg font-bold text-gray-900 flex items-center">
+                  <h2 className="text-xl font-bold text-gray-900 flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 mr-2 text-emerald-600"
+                      className="h-6 w-6 mr-3 text-emerald-600"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -412,11 +405,11 @@ export default function CricketMatchFinder() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setFilters({ location: "", date: "", amenity: "" })}
-                    className="text-xs text-emerald-600 hover:text-emerald-800 flex items-center bg-emerald-50 py-1 px-2 rounded-full transition-colors hover:bg-emerald-100"
+                    className="text-sm text-emerald-600 hover:text-emerald-800 flex items-center bg-emerald-50 py-2 px-3 rounded-full transition-colors hover:bg-emerald-100"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-3 w-3 mr-1"
+                      className="h-4 w-4 mr-1"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -427,15 +420,15 @@ export default function CricketMatchFinder() {
                   </motion.button>
                 </motion.div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1, duration: 0.5 }}
                     className="relative group"
                   >
-                    <label htmlFor="location-filter" className="block text-xs font-medium text-gray-700 mb-1 flex items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <label htmlFor="location-filter" className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
@@ -446,7 +439,7 @@ export default function CricketMatchFinder() {
                         id="location-filter"
                         value={filters.location}
                         onChange={(e) => setFilters({ ...filters, location: e.target.value })}
-                        className="w-full rounded-lg border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 bg-white py-2 pl-3 pr-8 text-sm appearance-none hover:bg-emerald-50 transition-colors duration-200 cursor-pointer text-gray-700 font-medium"
+                        className="w-full rounded-lg border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 bg-white py-3 pl-4 pr-10 appearance-none hover:bg-emerald-50 transition-colors duration-200 cursor-pointer text-gray-700 font-medium"
                       >
                         <option value="" className="hover:bg-emerald-50">All Locations</option>
                         {locations.map((location) => (
@@ -455,8 +448,8 @@ export default function CricketMatchFinder() {
                           </option>
                         ))}
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-emerald-600 transition-transform duration-200 group-hover:text-emerald-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transition-transform duration-200 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-emerald-600 transition-transform duration-200 group-hover:text-emerald-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </div>
@@ -470,8 +463,8 @@ export default function CricketMatchFinder() {
                     transition={{ delay: 0.2, duration: 0.5 }}
                     className="relative group"
                   >
-                    <label htmlFor="date-filter" className="block text-xs font-medium text-gray-700 mb-1 flex items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <label htmlFor="date-filter" className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                       Date
@@ -482,16 +475,16 @@ export default function CricketMatchFinder() {
                         id="date-filter"
                         value={filters.date}
                         onChange={(e) => setFilters({ ...filters, date: e.target.value })}
-                        className="w-full rounded-lg border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 bg-white py-2 px-3 text-sm hover:bg-emerald-50 transition-colors duration-200 cursor-pointer text-gray-700 font-medium"
+                        className="w-full rounded-lg border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 bg-white py-3 px-4 hover:bg-emerald-50 transition-colors duration-200 cursor-pointer text-gray-700 font-medium"
                       />
                       {filters.date && (
                         <motion.button
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          className="absolute right-8 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-emerald-600 z-10"
+                          className="absolute right-10 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-emerald-600 z-10"
                           onClick={() => setFilters({ ...filters, date: "" })}
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                           </svg>
                         </motion.button>
@@ -506,8 +499,8 @@ export default function CricketMatchFinder() {
                     transition={{ delay: 0.3, duration: 0.5 }}
                     className="relative group"
                   >
-                    <label htmlFor="amenity-filter" className="block text-xs font-medium text-gray-700 mb-1 flex items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <label htmlFor="amenity-filter" className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                       </svg>
                       Amenity
@@ -517,17 +510,17 @@ export default function CricketMatchFinder() {
                         id="amenity-filter"
                         value={filters.amenity}
                         onChange={(e) => setFilters({ ...filters, amenity: e.target.value })}
-                        className="w-full rounded-lg border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 bg-white py-2 pl-3 pr-8 text-sm appearance-none hover:bg-emerald-50 transition-colors duration-200 cursor-pointer text-gray-700 font-medium"
+                        className="w-full rounded-lg border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 bg-white py-3 pl-4 pr-10 appearance-none hover:bg-emerald-50 transition-colors duration-200 cursor-pointer text-gray-700 font-medium"
                       >
-                        <option value="" className="hover:bg-emerald-50 focus:bg-emerald-50">All Amenities</option>
+                        <option value="" className="hover:bg-emerald-50 focus:bg-emerald-50"  >All Amenities</option>
                         <option value="water" className="hover:bg-emerald-50">Water</option>
                         <option value="parking" className="hover:bg-emerald-50">Parking</option>
                         <option value="lights" className="hover:bg-emerald-50">Lights</option>
                         <option value="changing_rooms" className="hover:bg-emerald-50">Changing Rooms</option>
                         <option value="equipment" className="hover:bg-emerald-50">Equipment</option>
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-emerald-600 transition-transform duration-200 group-hover:text-emerald-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transition-transform duration-200 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-emerald-600 transition-transform duration-200 group-hover:text-emerald-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </div>
@@ -540,17 +533,17 @@ export default function CricketMatchFinder() {
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
-                    className="mt-3 pt-3 border-t border-gray-100"
+                    className="mt-6 pt-5 border-t border-gray-100"
                   >
-                    <div className="flex flex-wrap gap-1">
-                      <h3 className="text-xs font-medium text-gray-500 mr-1">Active filters:</h3>
+                    <div className="flex flex-wrap gap-2">
+                      <h3 className="text-sm font-medium text-gray-500 mr-2">Active filters:</h3>
                       {filters.location && (
                         <motion.span
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800"
+                          className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-800"
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                           </svg>
@@ -558,10 +551,10 @@ export default function CricketMatchFinder() {
                           <button
                             type="button"
                             onClick={() => setFilters({ ...filters, location: "" })}
-                            className="ml-1 inline-flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-full text-emerald-600 hover:bg-emerald-200 hover:text-emerald-800 focus:outline-none"
+                            className="ml-1 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full text-emerald-600 hover:bg-emerald-200 hover:text-emerald-800 focus:outline-none"
                           >
                             <span className="sr-only">Remove location filter</span>
-                            <svg className="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
+                            <svg className="h-3 w-3" stroke="currentColor" fill="none" viewBox="0 0 8 8">
                               <path strokeLinecap="round" strokeWidth="1.5" d="M1 1l6 6m0-6L1 7" />
                             </svg>
                           </button>
@@ -571,19 +564,19 @@ export default function CricketMatchFinder() {
                         <motion.span
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800"
+                          className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-800"
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                           {new Date(filters.date).toLocaleDateString()}
                           <button
                             type="button"
                             onClick={() => setFilters({ ...filters, date: "" })}
-                            className="ml-1 inline-flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-full text-emerald-600 hover:bg-emerald-200 hover:text-emerald-800 focus:outline-none"
+                            className="ml-1 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full text-emerald-600 hover:bg-emerald-200 hover:text-emerald-800 focus:outline-none"
                           >
                             <span className="sr-only">Remove date filter</span>
-                            <svg className="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
+                            <svg className="h-3 w-3" stroke="currentColor" fill="none" viewBox="0 0 8 8">
                               <path strokeLinecap="round" strokeWidth="1.5" d="M1 1l6 6m0-6L1 7" />
                             </svg>
                           </button>
@@ -593,26 +586,26 @@ export default function CricketMatchFinder() {
                         <motion.span
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800"
+                          className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-800"
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                           </svg>
                           {filters.amenity.replace("_", " ")}
                           <button
                             type="button"
                             onClick={() => setFilters({ ...filters, amenity: "" })}
-                            className="ml-1 inline-flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-full text-emerald-600 hover:bg-emerald-200 hover:text-emerald-800 focus:outline-none"
+                            className="ml-1 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full text-emerald-600 hover:bg-emerald-200 hover:text-emerald-800 focus:outline-none"
                           >
                             <span className="sr-only">Remove amenity filter</span>
-                            <svg className="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
+                            <svg className="h-3 w-3" stroke="currentColor" fill="none" viewBox="0 0 8 8">
                               <path strokeLinecap="round" strokeWidth="1.5" d="M1 1l6 6m0-6L1 7" />
                             </svg>
                           </button>
                         </motion.span>
                       )}
                     </div>
-                    <div className="mt-1 text-xs text-gray-500">
+                    <div className="mt-2 text-sm text-gray-500">
                       Showing {filteredMatches.length} {filteredMatches.length === 1 ? 'match' : 'matches'}
                     </div>
                   </motion.div>
@@ -1253,7 +1246,7 @@ export default function CricketMatchFinder() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className={`${dmSans.className} bg-gray-800 text-white mt-12`}
+        className="bg-gray-800 text-white mt-12"
       >
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
           <div className="md:flex md:items-center md:justify-between">
